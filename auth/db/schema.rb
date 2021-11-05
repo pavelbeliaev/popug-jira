@@ -23,7 +23,13 @@ ActiveRecord::Schema.define(version: 2021_11_06_021005) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "full_name"
+    t.string "role"
+    t.integer "balance", default: 0, null: false
+    t.uuid "public_id", default: -> { "gen_random_uuid()" }, null: false
+    t.boolean "active", default: true, null: false
     t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["public_id"], name: "index_accounts_on_public_id"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
