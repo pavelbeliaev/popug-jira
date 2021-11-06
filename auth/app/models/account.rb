@@ -13,4 +13,16 @@ class Account < ApplicationRecord
            class_name: 'Doorkeeper::AccessToken',
            foreign_key: :resource_owner_id,
            dependent: :delete_all # or :destroy if you need callbacks
+
+  after_create :publish_account_created_event
+
+  def disable!
+    update!(active: false, disabled_at: Time.current)
+  end
+
+  private
+
+  def publish_account_created_event
+    Events::Account::Created.new(self).publish
+  end
 end
