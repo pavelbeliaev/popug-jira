@@ -1,3 +1,4 @@
+# ==== AUTH ====
 /auth/.bundle
 
 # Ignore all logfiles and tempfiles.
@@ -23,4 +24,34 @@
 
 /auth/.rbenv-gemsets
 /auth/node_modules/*
+# ==== /AUTH ====
+
+# ==== TASKER ====
+/tasker/.bundle
+
+# Ignore all logfiles and tempfiles.
+/tasker/log/*
+/tasker/tmp/*
+!/tasker/log/.keep
+!/tasker/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tasker/tmp/pids/*
+!/tasker/tmp/pids/
+!/tasker/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+/tasker/storage/*
+!/tasker/storage/.keep
+
+/tasker/public/assets
+/tasker/.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/tasker/config/master.key
+
+/tasker/.rbenv-gemsets
+/tasker/node_modules/*
+# ==== /TASKER ====
+
 .DS_Store
