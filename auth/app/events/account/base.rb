@@ -3,6 +3,8 @@ module Events
     class Base
       TOPIC = 'accounts-stream'.freeze
 
+      attr_reader :account
+
       def initialize(account)
         @account = account
       end

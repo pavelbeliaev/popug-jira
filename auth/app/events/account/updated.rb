@@ -1,12 +1,12 @@
 module Events
   module Account
-    class Changed < Base
+    class Updated < Base
 
       private
 
       def to_json
         {
-          name: 'AccountChanged'
+          name: 'AccountUpdated'
           data: {
             public_id: account.public_id,
             email: account.email,
