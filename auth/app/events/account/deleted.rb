@@ -1,15 +1,15 @@
 module Events
   module Account
-    class Disabled < Base
+    class Deleted < Base
 
       private
 
       def to_json
         {
-          name: 'AccountDisabled'
+          name: 'AccountDeleted'
           data: {
             public_id: account.public_id,
-            disabled_at: account.disabled_at
+            deleted_at: account.deleted_at
           }
         }
       end

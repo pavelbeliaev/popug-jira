@@ -3,6 +3,7 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  enum :roles, { worker: 'worker', admin: 'admin', manager: 'manager', accountant: 'accountant' }
 
   has_many :access_grants,
            class_name: 'Doorkeeper::AccessGrant',
@@ -16,8 +17,8 @@ class Account < ApplicationRecord
 
   after_create :publish_account_created_event
 
-  def disable!
-    update!(active: false, disabled_at: Time.current)
+  def delete_soft!
+    update!(active: false, deleted_at: Time.current)
   end
 
   private

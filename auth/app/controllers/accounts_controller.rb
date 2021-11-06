@@ -38,7 +38,7 @@ class AccountsController < ApplicationController
   def update
     respond_to do |format|
       if @account.update(account_params)
-        Events::Account::Changed.new(@account).publish
+        Events::Account::Updated.new(@account).publish
 
         format.html { redirect_to @account, notice: "Account was successfully updated." }
         format.json { render :show, status: :ok, location: @account }
@@ -51,8 +51,8 @@ class AccountsController < ApplicationController
 
   # DELETE /accounts/1 or /accounts/1.json
   def destroy
-    @account.disable!
-    Events::Account::Disabled.new(@account).publish
+    @account.delete_soft!
+    Events::Account::Deleted.new(@account).publish
 
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: "Account was successfully destroyed." }
