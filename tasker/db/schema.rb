@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_114116) do
     t.integer "price"
     t.integer "fee"
     t.datetime "completed_at"
-    t.string "status"
+    t.string "status", default: "active"
     t.uuid "public_id", default: -> { "gen_random_uuid()" }, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

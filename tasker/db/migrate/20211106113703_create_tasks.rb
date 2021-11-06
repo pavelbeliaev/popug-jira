@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :price
       t.integer :fee
       t.datetime :completed_at
-      t.string :status
+      t.string :status, default: 'active'
       t.uuid :public_id, default: 'gen_random_uuid()', null: false, index: true
 
       t.timestamps
