@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_11_06_114116) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "public_id"
-    t.string "full_name"
-    t.string "role"
+    t.string "full_name", null: false
+    t.string "role", null: false
     t.index ["public_id"], name: "index_accounts_on_public_id"
   end
 
