@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authenticate!, only: %i[new create]
+  skip_before_action :authenticate!, only: %i[new create]
 
   def new
   end
@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
   private
 
   def auth
-    request.env['omniauth.auth']
+    @auth ||= request.env['omniauth.auth']['info'].to_h.slice('public_id', 'role', 'full_name')
   end
 end
