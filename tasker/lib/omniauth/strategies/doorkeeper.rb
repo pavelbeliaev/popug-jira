@@ -7,8 +7,8 @@ module OmniAuth
       option :name, :doorkeeper
 
       option :client_options, {
-        site: "http://localhost:3000",
-        authorize_url: "/oauth/authorize"
+        site: "http://localhost:3000/oauth/authorize",
+        authorize_url: "http://localhost:3000/oauth/authorize"
       }
 
       uid { raw_info["public_id"] }

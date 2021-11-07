@@ -98,8 +98,4 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:description)
     end
-
-    def admin_or_manager?
-      current_account.admin? || current_account.manager?
-    end
 end

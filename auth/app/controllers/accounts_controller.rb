@@ -60,6 +60,12 @@ class AccountsController < ApplicationController
     end
   end
 
+  def current
+    respond_to do |format|
+      format.json  { render json: current_account }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
@@ -68,6 +74,14 @@ class AccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def account_params
-      params.fetch(:account, {})
+      params.require(:account).permit(:full_name, :role)
+    end
+
+    def current_account
+      if doorkeeper_token
+        Account.find(doorkeeper_token.resource_owner_id)
+      else
+        super
+      end
     end
 end

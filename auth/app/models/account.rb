@@ -3,7 +3,7 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum :roles, { worker: 'worker', admin: 'admin', manager: 'manager', accountant: 'accountant' }
+  enum role: { worker: 'worker', admin: 'admin', manager: 'manager', accountant: 'accountant' }
 
   has_many :access_grants,
            class_name: 'Doorkeeper::AccessGrant',
