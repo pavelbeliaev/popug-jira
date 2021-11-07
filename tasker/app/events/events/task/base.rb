@@ -8,7 +8,7 @@ module Events
       end
 
       def publish
-        Producer.call(to_json, topic: topic)
+        WaterDrop::SyncProducer.call(to_json, topic: topic)
       end
 
       private
