@@ -52,6 +52,7 @@
 
 /tasker/.rbenv-gemsets
 /tasker/node_modules/*
+/tasker/.env
 # ==== /TASKER ====
 
 .DS_Store

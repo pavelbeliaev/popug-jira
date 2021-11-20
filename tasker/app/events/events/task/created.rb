@@ -5,7 +5,7 @@ module Events
       private
 
       def topic
-        'tasks-streaming'
+        'tasks-stream'
       end
 
       def to_json
@@ -16,7 +16,7 @@ module Events
             status: task.status,
             description: task.description
           }
-        }
+        }.to_json
       end
     end
   end

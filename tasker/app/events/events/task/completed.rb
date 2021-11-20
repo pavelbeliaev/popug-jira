@@ -1,6 +1,6 @@
 module Events
   module Task
-    class Created < Base
+    class Completed < Base
 
       private
 
@@ -16,7 +16,7 @@ module Events
             status: task.status,
             completed_at: task.completed_at
           }
-        }
+        }.to_json
       end
     end
   end

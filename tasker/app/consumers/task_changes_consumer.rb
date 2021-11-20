@@ -1,16 +1,12 @@
-class TaskChangesConsumer < ApplicationConsumer
-  def consume
-    params_batch.each do |message|
-      puts '-' * 80
-      p message
-      puts '-' * 80
+class TaskChangesConsumer
+  def self.process(message)
+    data = message['data']
 
-      case message['event_name']
-      when 'TaskCreated'
-        # not implemented
-      else
-        # store events in DB
-      end
+    case message['event_name']
+    when 'TaskCreated'
+      # not implemented
+    else
+      # store events in DB
     end
   end
 end

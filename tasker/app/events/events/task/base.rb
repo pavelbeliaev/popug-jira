@@ -8,10 +8,14 @@ module Events
       end
 
       def publish
-        WaterDrop::SyncProducer.call(to_json, topic: topic)
+        producer.call(topic, to_json)
       end
 
       private
+
+      def producer
+        @producer ||= Producer.new
+      end
 
       def topic
         raise 'Not implemented'

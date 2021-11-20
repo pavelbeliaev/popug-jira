@@ -16,7 +16,7 @@ module Events
             status: task.status,
             account_public_id: task.account.public_id
           }
-        }
+        }.to_json
       end
     end
   end
